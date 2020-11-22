@@ -1,0 +1,15 @@
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Title</th>
+    <th></th>
+  </tr>
+
+  <% @articles.each do |article| %>
+    <tr>
+      <td><%= article.id %></td>
+      <td><%= article.title %></td>
+
+    </tr>
+  <% end %>
+</table>
