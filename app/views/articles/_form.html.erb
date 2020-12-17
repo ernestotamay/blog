@@ -1,19 +1,33 @@
 <%= form_with(model: @article, local: true) do |form| %>
-  <div class="field">
-    <%=form.label :title %>
-    <%=form.text_field :title %>
-  </div>
+    <div class="field">
+      <%=form.label :title %>
+      <%=form.text_field :title %>
+    </div>
 
-  <div class="field">
-    <%=form.label :content %>
-    <%=form.rich_text_area :content %>
-  </div>
+    <div class="field">
+      <%= form.label :content %>
+      <%= form.rich_text_area :content %>
+    </div>
 
-  <div >
-    <%=form.submit %>
-  </div>
+    <div class="field">
+      <%=form.label :categories %>
+        <div class="row">
+          <% @categories.each do |category| %>
+            <label class="col-6 col-sm-5">
+            <%= form.check_box :category_elements, {multiple: true}, category.id,nil %>
+            <%= category.title %>
+            </label>
+          <% end %>
 
-  <p>
-    <%= link_to "Inicio", root_path %>
-  </p>
-<%end%>
+        </div>
+
+    </div>
+
+    <div class="margin-top" >
+      <%=form.submit %>
+    </div>
+
+    <p>
+      <%= link_to "Inicio", root_path %>
+    </p>
+<% end %>

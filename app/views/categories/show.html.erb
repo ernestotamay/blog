@@ -1,6 +1,6 @@
 <nav class="large-container center-block">
   <!-- Localiza los registros creados por un usuario especifico llamado @user.email -->
-  <h1>Artículos publicados por <%= @user.email %></h1>
+  <h1>Artículos publicados por <%= @category.title %></h1>
   <!-- Esta asociación busca un parcial llamado articles en el modelo o por asociacón-->
-  <%= render @user.articles %>
+  <%= render @category.articles %>
 </nav>

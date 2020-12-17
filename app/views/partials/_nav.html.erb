@@ -1,31 +1,49 @@
-<nav class="nav bg-light padding">
-  <li class="nav-item">
-    <%= link_to "Inicio", root_path, class: "nav-link" %>
-  </li>
+<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
 
-  <li class="nav-item">
-    <%= link_to "Articulos", articles_path, class: "nav-link" %>
-  </li>
+  <a class="navbar-brand" href="<%= root_path %>">Tamay Blog</a>
 
-  <li class="nav-item">
-    <%= link_to "Escribir", new_articles_path, class: "nav-link" %>
-  </li>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-  <!-- Si hay usuario con sesion iniciada -->
-  <% if user_signed_in? %>
-    <li class="nav-item">
-      <!-- Mostrar en NAVBAR cerrar sesión -->
-      <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete, class: "nav-link" %>
-    </li>
-  <% else %>
-    <li class="nav-item">
-      <!-- Si no hay inicio sesión por usuario -->
-      <!-- Mostrar en NVABAR "Iniciar Sesion" -->
-        <%= link_to "Iniciar Sesión", new_user_session_path, class: "nav-link" %>
-    </li>
-    <li class="nav-item">
-      <!-- Mostrar en NVABAR "Registro" -->
-      <%= link_to "Registro", new_user_registration_path, class: "nav-link" %>
-    </li>
-  <% end %>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+
+      <li class="nav-item" >
+        <%= link_to "Inicio", root_path, class: "nav-link" %>
+      </li>
+
+      <li class="nav-item">
+        <%= link_to "Articles", articles_path, class: "nav-link" %>
+      </li>
+
+      <li class="nav-item">
+        <%= link_to "Categorias", categories_path, class: "nav-link" %>
+      </li>
+
+      <!-- Si hay usuario con sesion iniciada -->
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <!-- Mostrar en NAVBAR cerrar sesión -->
+          <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <!-- Mostrar en NAVBAR cerrar sesión -->
+          <%= link_to "#{current_user.email}","#",class: "nav-link" %>
+        </li>
+
+      <% else %>
+        <li class="nav-item">
+          <!-- Si no hay inicio sesión por usuario -->
+          <!-- Mostrar en NVABAR "Iniciar Sesion" -->
+          <%= link_to "Iniciar Sesión", new_user_session_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <!-- Mostrar en NVABAR "Registro" -->
+          <%= link_to "Registro", new_user_registration_path, class: "nav-link" %>
+        </li>
+      <% end %>
+
+    </ul>
+  </div>
 </nav>
