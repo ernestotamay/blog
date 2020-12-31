@@ -20,7 +20,11 @@
     <% @categories.each do |category| %>
       <tr>
         <td><%= category.title %></td>
-        <td><%= category.color %></td>
+        <td>
+          <span class="badge badge-pill padding" style="background-color: <%= category.color %>" >
+              <%= link_to "", category, class: "text-white" %>
+          </span>
+        </td>
         <td><%= link_to 'Show', category %>
             <%= link_to 'Edit', edit_category_path(category) %>
             <%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %>
